@@ -1,0 +1,35 @@
+enter_no_of_items = int(input('Enter no. of Entries: '))
+imported_items =[]
+item = []
+for i in range(enter_no_of_items):
+    items = input('enter item: ')
+    price = float(input('Enter price: '))
+    if 'import' in items:
+        imported_items.append(items)
+        imported_items.append(price)
+    else:
+        item.append(items)
+        item.append(price)
+
+s_1 = 0
+s_2 = 0
+for i in range(len(imported_items)):
+    s_1 = s_1 + imported_items[i]
+imp_tax = s_1 * 0.05
+l = imported_items + item
+
+
+for i in range(0,len(l),2):
+    if l[i] not in ['chocolate','pill','book']:
+        s_2 = (l[i+1]) + s_2
+      
+tax = s_2 * 0.10
+
+total_sales_tax = round(imp_tax,2) + round(tax,2)
+print('total_sales_tax',total_sales_tax)
+t_s = 0
+for i in range(1,len(l),2):
+    t_s = t_s + l[i]
+
+Total = round(t_s,2) + round(total_sales_tax,2)
+print('Total',Total)
